@@ -128,14 +128,14 @@ public class Map {
 		return pathBuilder.build();
 	}
 	
-	private void executeDijkstraAlgorithm(Node source, Node target_node) {
+	private void executeDijkstraAlgorithm(Node source_node, Node target_node) {
 		Set<Node> unvisited_nodes = new HashSet<Node>(nodes.size());
 		for (Node node : nodes.values()) {
 			node.getMetadata().reset();
 			unvisited_nodes.add(node);
 		}
 		
-		source.getMetadata().distance = 0.0;
+		source_node.getMetadata().distance = 0.0;
 		
 		while (!unvisited_nodes.isEmpty()) {
 			Node current_node = findNearestNode(unvisited_nodes);
@@ -158,15 +158,15 @@ public class Map {
 	}
 	
 	private Node findNearestNode(Set<Node> nodes) {
-		Node nearestNode = null;
+		Node nearest_node = null;
 		
 		for (Node node : nodes) {
-			if (nearestNode == null || node.getMetadata().distance < nearestNode.getMetadata().distance) {
-				nearestNode = node;
+			if (nearest_node == null || node.getMetadata().distance < nearest_node.getMetadata().distance) {
+				nearest_node = node;
 			}
 		}
 		
-		return nearestNode;
+		return nearest_node;
 	}
 	
 }
