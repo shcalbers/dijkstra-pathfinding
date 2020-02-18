@@ -30,7 +30,7 @@ public class Map {
 			try {
 				return tryConnect(vertexA, vertexB);
 			} catch (NullPointerException e) {
-				throw new IllegalArgumentException("");
+				throw new IllegalArgumentException("One or both of the supplied vertices were not found!");
 			}
 		}
 		
