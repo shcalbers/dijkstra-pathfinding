@@ -119,7 +119,7 @@ public class Map {
 		
 		Path.Builder pathBuilder = new Path.Builder();
 		
-		if (target_node.getMetadata().previous != null || target_node == source_node) {
+		if (target_node.getMetadata().previous != null || target_node != source_node) {
 			for (Node current_node = target_node; current_node != null; current_node = current_node.getMetadata().previous) {
 				pathBuilder.addPoint(current_node.getPosition());
 			}
